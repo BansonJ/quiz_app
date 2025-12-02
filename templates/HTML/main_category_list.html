@@ -125,9 +125,13 @@
     <div class="sub-title" style="color: var(--text-primary);">📗 {{ main.name }} 중분류 선택</div>
 
     {% for sub in sub_categories %}
-    <a class="sub-btn" href="{% url 'quiz_view' sub.id %}" style="background-color: var(--primary-color);">{{ sub.name }}</a>
+        {% if sub.main_id == main.id %}
+            <a class="sub-btn" href="{% url 'quiz_view' sub.id %}" style="background-color: var(--primary-color);">
+                {{ sub.name }}
+            </a>
+        {% endif %}
     {% empty %}
-    <p style="color: var(--text-secondary);">등록된 중분류가 없습니다.</p>
+    <p>등록된 중분류가 없습니다.</p>
     {% endfor %}
 </div>
 {% endfor %}
