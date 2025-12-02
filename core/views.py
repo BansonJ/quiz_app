@@ -61,6 +61,7 @@ def sub_category_list(request, main_id):
 def quiz_view(request, sub_id):
     subcategory = SubCategory.objects.get(id=sub_id)
     questions = Quiz.objects.filter(subcategory=subcategory)
+    
 
     return render(request, "HTML/quiz.html", {
         "subcategory": subcategory,

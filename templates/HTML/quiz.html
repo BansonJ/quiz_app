@@ -15,8 +15,7 @@
             {% for quiz in questions %}
             <div class="card">
                 <div class="flex items-center gap-sm mb-md">
-                    <span class="btn btn-primary" style="padding: 0.25rem 0.75rem; font-size: 0.875rem;">Q{{
-                        forloop.counter }}</span>
+                    <span class="btn btn-primary" style="padding: 0.25rem 0.75rem; font-size: 0.875rem;">Q{{ forloop.counter }}</span>
                     <h3 style="margin: 0; font-size: 1.1rem;">{{ quiz.question }}</h3>
                 </div>
 
