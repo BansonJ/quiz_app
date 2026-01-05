@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-easo013v2$*7t8%*6&5)r$*vkcy9=q5qlm)4==xj=x*x$(c+&1'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -80,12 +80,14 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'users',
-        'USER': 'dbuser',
-        'PASSWORD': '@Dhtmdrms0213',
-        'HOST': '172.16.6.131',   # ✅ DB 서버 IP
+        'USER': 'os.getenv("DB_USER")',
+        'PASSWORD': 'os.getenv("DB_PASSWORD")',
+        'HOST': 'os.getenv("RDS_ENDPOINT")',   # ✅ DB 서버 IP
         'PORT': '3306',
+        'CONN_MAX_AGE': 0,
         'OPTIONS': {
             'charset': 'utf8mb4',
+            'connect_timeout': 5,
         },
     }
 }
