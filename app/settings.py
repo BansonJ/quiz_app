@@ -80,9 +80,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'users',
-        'USER': 'os.getenv("DB_USER")',
-        'PASSWORD': 'os.getenv("DB_PASSWORD")',
-        'HOST': 'os.getenv("RDS_ENDPOINT")',   # ✅ DB 서버 IP
+        'USER': os.getenv("DB_USER"),
+        'PASSWORD': os.getenv("DB_PASSWORD"),
+        'HOST': os.getenv("RDS_ENDPOINT"),   # ✅ DB 서버 IP
         'PORT': '3306',
         'CONN_MAX_AGE': 0,
         'OPTIONS': {
